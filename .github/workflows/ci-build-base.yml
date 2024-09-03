@@ -1,4 +1,4 @@
-name: CI Build
+name: CI Build Base
 
 on:
   workflow_call:
