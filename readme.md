@@ -1,0 +1,1 @@
+https://github.com/OWNER/REPOSITORY/actions/workflows/ci-build-debug.yml/badge.svg https://github.com/OWNER/REPOSITORY/actions/workflows/ci-build-release.yml/badge.svg
