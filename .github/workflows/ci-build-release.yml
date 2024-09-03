@@ -1,4 +1,4 @@
-name: ci-debug
+name: CI Build (Release)
 on:
   push:
     branches: [ "main" ]
