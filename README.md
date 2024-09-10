@@ -89,8 +89,10 @@ You're welcome to request access to the project or fork it and create a PR.  Or 
 ## Current To-Do List
 :white_check_mark: Complete README.md file  
 :white_check_mark: Add screenshots to the README.md file  
-:x: Set up branch policies  
-:x: Unit tests  
+:white_square_button: Set up branch policies (dependent on making repo public)  
+:white_check_mark: Unit tests  
+:x: Create demo app (with config)  
+:x: Create demo app (without config)  
 :x: Set up NuGet publishing  
 :x: Make this repo public  
 :x: Announce on Reddit ([csharp](http://www.reddit.com/r/csharp) and [dotnet](http://www.reddit.com/r/dotnet))  
