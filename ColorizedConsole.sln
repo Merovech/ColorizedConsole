@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorizedConsole", "src\Col
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ColorizedConsole.Tests", "src\ColorizedConsole.Tests\ColorizedConsole.Tests.csproj", "{DA49A7BE-2F87-43BB-99AD-62DD76FC7442}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DefaultBehavior", "demos\DefaultBehavior\DefaultBehavior.csproj", "{B10EA62C-6F03-4E4B-95A4-E16A11185B11}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{E3216DC4-0F24-46EE-92C5-771F7E84B66B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomizedColors", "demos\CustomizedColors\CustomizedColors.csproj", "{191F7543-EFF0-40F1-9BF7-2D23B1710FB3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +27,21 @@ Global
 		{DA49A7BE-2F87-43BB-99AD-62DD76FC7442}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DA49A7BE-2F87-43BB-99AD-62DD76FC7442}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DA49A7BE-2F87-43BB-99AD-62DD76FC7442}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10EA62C-6F03-4E4B-95A4-E16A11185B11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10EA62C-6F03-4E4B-95A4-E16A11185B11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10EA62C-6F03-4E4B-95A4-E16A11185B11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10EA62C-6F03-4E4B-95A4-E16A11185B11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{191F7543-EFF0-40F1-9BF7-2D23B1710FB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{191F7543-EFF0-40F1-9BF7-2D23B1710FB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{191F7543-EFF0-40F1-9BF7-2D23B1710FB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{191F7543-EFF0-40F1-9BF7-2D23B1710FB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B10EA62C-6F03-4E4B-95A4-E16A11185B11} = {E3216DC4-0F24-46EE-92C5-771F7E84B66B}
+		{191F7543-EFF0-40F1-9BF7-2D23B1710FB3} = {E3216DC4-0F24-46EE-92C5-771F7E84B66B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {AE67422A-973E-454E-B332-05AC56F79D74}
