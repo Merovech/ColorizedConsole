@@ -37,10 +37,6 @@ namespace ColorizedConsole.Tests.Utilities
             string propsBlock = string.Join('&', hashedProps);
 
             string hash = string.Format(HashFormats.Attribute, [name, propsBlock]);
-
-            // TODO: Remove Console.WriteLine
-            Console.WriteLine(hash);
-
             return hash;
         }
 
@@ -62,9 +58,6 @@ namespace ColorizedConsole.Tests.Utilities
             string attributeBlock = GenerateAttributeBlock(method);
 
             string hash = string.Format(HashFormats.Method, name, accessModifier, methodStr, attributeBlock);
-
-            // TODO: Remove after debugging
-            Console.WriteLine(hash);
             return hash;
         }
 
@@ -82,10 +75,6 @@ namespace ColorizedConsole.Tests.Utilities
             string attributeBlock = GenerateAttributeBlock(property);
 
             string hash = string.Format(HashFormats.Property, name, accessModifier, propertyTypeName, getterSetterBlock, attributeBlock);
-
-            // TODO: Remove after debugging
-            Console.WriteLine(hash);
-
             return hash;
         }
 
@@ -102,10 +91,6 @@ namespace ColorizedConsole.Tests.Utilities
             string attributeBlock = GenerateAttributeBlock(eventInfo);
 
             string hash = string.Format(HashFormats.Event, name, accessModifier, addRemoveRaiseBlock, attributeBlock);
-
-            // TODO: Remove after debugging
-            Console.WriteLine(hash);
-
             return hash;
         }
 
