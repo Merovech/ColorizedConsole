@@ -2,13 +2,16 @@
 {
 	public static partial class ConsoleEx
 	{
-		private static readonly string _configFileName = ".colorcrc";
+		private static readonly string _configFileName = ".colorizedconsolerc";
+		private static readonly ConsoleColor _defaultErrorColor = ConsoleColor.Red;
+		private static readonly ConsoleColor _defaultDebugColor = ConsoleColor.Yellow;
+		private static readonly ConsoleColor _defaultInfoColor = ConsoleColor.Green;
 
-		public static ConsoleColor DebugColor { get; private set; }
+		public static ConsoleColor DebugColor { get; private set; } = _defaultDebugColor;
 
-		public static ConsoleColor ErrorColor { get; private set; }
+		public static ConsoleColor ErrorColor { get; private set; } = _defaultErrorColor;
 
-		public static ConsoleColor InfoColor { get; private set; }
+		public static ConsoleColor InfoColor { get; private set; } = _defaultInfoColor;
 
 		static ConsoleEx()
 		{
@@ -16,9 +19,8 @@
 			{
 				var configLines = File.ReadAllLines(_configFileName);
 				foreach (var line in configLines) {
+					// Fallbacks are defined above
 					ConsoleColor? parsedColor = GetConsoleColor(line);
-					// Fall back to whatever the default console color is in the case of no config
-					// or invalid values in the config.
 					if (line.StartsWith("Debug"))
 					{
 						DebugColor = parsedColor ?? Console.ForegroundColor;
@@ -30,12 +32,6 @@
 					else if (line.StartsWith("Info"))
 					{
 						InfoColor = parsedColor ?? Console.ForegroundColor;
-					}
-					else
-					{
-						ErrorColor = Console.ForegroundColor;
-						DebugColor = Console.ForegroundColor;
-						InfoColor = Console.ForegroundColor;
 					}
 				}
 			}
