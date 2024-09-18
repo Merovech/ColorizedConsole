@@ -10,11 +10,17 @@
     <Description>A simple colorized console that wraps System.Console.  Provides full System.Console functionality as well as colorized output generically and for customizable Debug/Info/Error colors.</Description>
     <Copyright>Copyright © 2004 Ari Roth</Copyright>
     <PackageProjectUrl>https://github.com/Merovech/ColorizedConsole</PackageProjectUrl>
-    <AssemblyVersion>0.0.7</AssemblyVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <PackageLicenseExpression>CC-BY-3.0-US</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <PackageTags>console;color;colorized</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Authors>Merovech</Authors>
+    <Company />
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/Merovech/ColorizedConsole</RepositoryUrl>
+    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -24,5 +30,12 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <Deterministic>False</Deterministic>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
 </Project>
