@@ -16,7 +16,7 @@
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
     <PackageTags>console;color;colorized</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Authors>Merovech</Authors>
+    <Authors>Ari Roth</Authors>
     <Company />
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Merovech/ColorizedConsole</RepositoryUrl>
