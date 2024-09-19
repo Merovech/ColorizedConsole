@@ -87,17 +87,3 @@ Want to contribute?  Fantastic!  I'd be happy for the help to make this even mor
 3. Standalone and lightweight by not being dependent on anything other than the base CLR itself.
 
 You're welcome to request access to the project or fork it and create a PR.  Or just contact [Merovech](https://github.com/Merovech). Whatever works for you.
-
-## Current To-Do List (In Preparation for Release)
-:white_check_mark: Complete README.md file  
-:white_check_mark: Add screenshots to the README.md file  
-:white_square_button: Set up branch policies (dependent on making repo public)  
-:white_check_mark: Unit tests  
-:white_check_mark: Create demo app (with config)  
-:white_check_mark: Create demo app (without config)  
-:white_check_mark: Set up NuGet publishing  
-:x: Final once-over before release  
-:x: Publish to [NuGet](http://nuget.org)  
-:x: Make this repo public  
-:x: Announce on Reddit ([csharp](http://www.reddit.com/r/csharp) and [dotnet](http://www.reddit.com/r/dotnet))  
-:grey_question: Set up GitHub project, if this gets traction
