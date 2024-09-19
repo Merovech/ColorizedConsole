@@ -1,11 +1,5 @@
 # ColorizedConsole
-![CI Debug](https://github.com/Merovech/ColorizedConsole/actions/workflows/ci-build-debug.yml/badge.svg) ![CI Release](https://github.com/Merovech/ColorizedConsole/actions/workflows/ci-build-release.yml/badge.svg)
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
 ColorizedConsole is a simple, lightweight wrapper for `System.Console` that adds basic, configurable coloring functionality to your console apps.
-
-![image](https://github.com/user-attachments/assets/a86d434d-c1ec-43ba-af5d-62743ecf3cea)
 
 ## Features
 * Complete wrapper for `System.Console`, so it can be used as a replacement and you can use the same class for all of your console output.
@@ -36,8 +30,6 @@ By default, this text is <code style="color: Yellow">yellow</code>.
 ColorizedConsole.ConsoleEx.WriteDebug("some_text");
 ColorizedConsole.ConsoleEx.WriteDebugLine("some_text");
 ```
-Example Output:  
-![image](https://github.com/user-attachments/assets/c853592a-7305-4730-ad62-1c7b5c40cccc)
 
 **WriteInfo**  
 By default, this text is <code style="color: Green">green</code>.
@@ -45,8 +37,6 @@ By default, this text is <code style="color: Green">green</code>.
 ColorizedConsole.ConsoleEx.WriteInfo("some_text");
 ColorizedConsole.ConsoleEx.WriteInfoLine("some_text");
 ```
-Example Output:  
-![image](https://github.com/user-attachments/assets/8e936dc1-dbd4-43f7-9f11-2a3f9a5af0d1)
 
 **WriteError**  
 By default, this text is <code style="color: Red">red</code>.
@@ -54,8 +44,6 @@ By default, this text is <code style="color: Red">red</code>.
 ColorizedConsole.ConsoleEx.WriteError("some_text");
 ColorizedConsole.ConsoleEx.WriteErrorLine("some_text");
 ```
-Example Output:  
-![image](https://github.com/user-attachments/assets/bd1c13d1-c772-4c43-a712-aad2903abbf6)
 
 In addition, every overload for `Console.Write` and `Console.WriteLine` has a version that supports color.  For example:
 
@@ -87,17 +75,3 @@ Want to contribute?  Fantastic!  I'd be happy for the help to make this even mor
 3. Standalone and lightweight by not being dependent on anything other than the base CLR itself.
 
 You're welcome to request access to the project or fork it and create a PR.  Or just contact [Merovech](https://github.com/Merovech). Whatever works for you.
-
-## Current To-Do List (In Preparation for Release)
-:white_check_mark: Complete README.md file  
-:white_check_mark: Add screenshots to the README.md file  
-:white_square_button: Set up branch policies (dependent on making repo public)  
-:white_check_mark: Unit tests  
-:white_check_mark: Create demo app (with config)  
-:white_check_mark: Create demo app (without config)  
-:white_check_mark: Set up NuGet publishing  
-:x: Final once-over before release  
-:x: Publish to [NuGet](http://nuget.org)  
-:x: Make this repo public  
-:x: Announce on Reddit ([csharp](http://www.reddit.com/r/csharp) and [dotnet](http://www.reddit.com/r/dotnet))  
-:grey_question: Set up GitHub project, if this gets traction
