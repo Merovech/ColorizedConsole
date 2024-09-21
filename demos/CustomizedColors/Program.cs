@@ -1,9 +1,9 @@
 ﻿using ColorizedConsole;
 
 ConsoleEx.WriteLine("Demo: Customized colors from .colorizedconsolerc");
-ConsoleEx.WriteLine($"Info : {ConsoleEx.InfoColor}");
-ConsoleEx.WriteLine($"Debug: {ConsoleEx.DebugColor}");
-ConsoleEx.WriteLine($"Error: {ConsoleEx.ErrorColor}");
+ConsoleEx.WriteLine($"Info : {ConsoleEx.Settings.InfoColor}");
+ConsoleEx.WriteLine($"Debug: {ConsoleEx.Settings.DebugColor}");
+ConsoleEx.WriteLine($"Error: {ConsoleEx.Settings.ErrorColor}");
 
 // Wrapping System.Console, so behavior is identical
 ConsoleEx.WriteLine("Press any key to begin demo.");

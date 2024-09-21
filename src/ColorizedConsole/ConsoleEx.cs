@@ -1,39 +1,41 @@
-﻿namespace ColorizedConsole
+﻿using System.Text.Json;
+using ColorizedConsole.Configuration;
+
+namespace ColorizedConsole
 {
 	public static partial class ConsoleEx
 	{
-		private static readonly string _configFileName = ".colorizedconsolerc";
-		private static readonly ConsoleColor _defaultErrorColor = ConsoleColor.Red;
-		private static readonly ConsoleColor _defaultDebugColor = ConsoleColor.Yellow;
-		private static readonly ConsoleColor _defaultInfoColor = ConsoleColor.Green;
-
-		public static ConsoleColor DebugColor { get; private set; } = _defaultDebugColor;
-
-		public static ConsoleColor ErrorColor { get; private set; } = _defaultErrorColor;
-
-		public static ConsoleColor InfoColor { get; private set; } = _defaultInfoColor;
+		public static Settings Settings
+		{
+			get; private set;
+		}
 
 		static ConsoleEx()
 		{
-			if (File.Exists(_configFileName))
+			Settings = new();
+			Initialize();
+		}
+
+		/// <summary>
+		/// Initializes the ConsoleEx class by looking for configuration settings in the local config file (cc.config.json) and then,
+		/// if no file was found, in environment variables.  If neither are found, no settings are changed.
+		/// </summary>
+		public static void Initialize()
+		{
+			// This may likely never get hit -- it was added only a few days after first release and announcement to the world
+			// of this library.  But it's here just in case.
+			Settings.ConvertOldConfigFileIfNecessary();
+
+			// Look for a config file first.  If it exists, use that.  Otherwise, look for environment variables.
+			// Otherwise, leave everything alone -- on first run the settings will be defaults anyway.
+
+			if (Settings.TryGetFromFile(out Settings settings))
 			{
-				var configLines = File.ReadAllLines(_configFileName);
-				foreach (var line in configLines) {
-					// Fallbacks are defined above
-					ConsoleColor? parsedColor = GetConsoleColor(line);
-					if (line.StartsWith("Debug"))
-					{
-						DebugColor = parsedColor ?? Console.ForegroundColor;
-					}
-					else if (line.StartsWith("Error"))
-					{
-						ErrorColor = parsedColor ?? Console.ForegroundColor;
-					}
-					else if (line.StartsWith("Info"))
-					{
-						InfoColor = parsedColor ?? Console.ForegroundColor;
-					}
-				}
+				Settings = settings;
+			}
+			else if (Settings.TryGetFromEnvironment(out settings))
+			{
+				Settings = settings;
 			}
 		}
 
@@ -44,12 +46,6 @@
 			ForegroundColor = color;
 			writeAction();
 			ResetColor();
-		}
-
-		private static ConsoleColor? GetConsoleColor(string line)
-		{
-			string colorString = line[(line.IndexOf('=') + 1)..];
-			return Enum.TryParse(colorString, out ConsoleColor color) ?	color : null;
 		}
 	}
 }

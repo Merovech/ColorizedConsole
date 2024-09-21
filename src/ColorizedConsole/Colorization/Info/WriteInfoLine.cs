@@ -8,47 +8,47 @@ namespace ColorizedConsole
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine()
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine());
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine());
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(bool value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(char value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(char[]? buffer)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(buffer));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(buffer));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(char[] buffer, int index, int count)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(buffer, index, count));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(buffer, index, count));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(decimal value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(double value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
@@ -61,7 +61,7 @@ namespace ColorizedConsole
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(int value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
@@ -69,14 +69,14 @@ namespace ColorizedConsole
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(uint value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(long value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
@@ -84,47 +84,47 @@ namespace ColorizedConsole
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(ulong value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(object? value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine(string? value)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(value));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(value));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string format, object? arg0)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(format, arg0));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(format, arg0));
 
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string format, object? arg0, object? arg1)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(format, arg0, arg1));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(format, arg0, arg1));
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string format, object? arg0, object? arg1, object? arg2)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(format, arg0, arg1, arg2));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(format, arg0, arg1, arg2));
 		}
 
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void WriteInfoLine([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string format, params object?[]? arg)
 		{
-			WriteColorized(InfoColor, () => Console.WriteLine(format, arg));
+			WriteColorized(Settings.InfoColor, () => Console.WriteLine(format, arg));
 		}
 	}
 }
