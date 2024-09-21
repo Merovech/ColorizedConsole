@@ -87,3 +87,23 @@ Want to contribute?  Fantastic!  I'd be happy for the help to make this even mor
 3. Standalone and lightweight by not being dependent on anything other than the base CLR itself.
 
 You're welcome to request access to the project or fork it and create a PR.  Or just contact [Merovech](https://github.com/Merovech). Whatever works for you.
+
+
+## Current Roadmap (updated monthly - last, September 2024)
+:arrow_forward:= In Progress
+:white_check_mark:= Complete
+:x:= Incomplete
+:grey_question:= Idea (needs investigation)
+
+* :arrow_forward: Implement updated configuration
+  * :white_check_mark: JSON config file
+  * :x: Environment variables
+  * :x: Unit tests for new config functionality
+* :x: Add a wiki
+  * :x: Description of the project
+  * :x: Usage examples
+  * :x: API documentation
+    * :grey_question: Maybe some sort of autodoc
+  * :x: Configuration guidelines and examples
+* :x: Change the NuGet README to a changelog
+* :x: Create a GitHub project so that I don't have to keep maintaining this file
