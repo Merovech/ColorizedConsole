@@ -9,30 +9,36 @@ namespace ColorizedConsole.Configuration
 		private static readonly ConsoleColor _defaultDebugColor = ConsoleColor.Yellow;
 		private static readonly ConsoleColor _defaultInfoColor = ConsoleColor.Green;
 
+		private static readonly string _debugEnvironmentVarName = "CCDEBUGCOLOR";
+		private static readonly string _errorEnvironmentVarName = "CCERRORCOLOR";
+		private static readonly string _infoEnvironmentVarName = "CCINFOCOLOR";
+
 		private static readonly string _configFileName = "cc.config.json";
 
 		private static readonly JsonSerializerOptions _serializerOptions = new()
 		{ 
-			Converters = { new ConsoleColorConverter() },
 			WriteIndented = true
 		};
 
 		/// <summary>
 		/// The color for the Debug methods (WriteDebug, WriteDebugLine).  Defaults to ColorConsole.Yellow.
 		/// </summary>
-		[JsonPropertyName("debug")]
+		[JsonPropertyName("debugColor")]
+		[JsonConverter(typeof(JsonStringEnumConverter))]
 		public ConsoleColor DebugColor { get; set; } = _defaultDebugColor;
 
 		/// <summary>
 		/// The color for the Error methods (WriteError, WriteErrorLine).  Defaults to ConsoleColor.Red.
 		/// </summary>
-		[JsonPropertyName("error")]
+		[JsonPropertyName("errorColor")]
+		[JsonConverter(typeof(JsonStringEnumConverter))]
 		public ConsoleColor ErrorColor { get; set; } = _defaultErrorColor;
 
 		/// <summary>
 		/// The color for the Info methods (WriteInfo, WriteInfoLine).  Defaults to ConsoleColor.Green.
 		/// </summary>
-		[JsonPropertyName("info")]
+		[JsonPropertyName("infoColor")]
+		[JsonConverter(typeof(JsonStringEnumConverter))]
 		public ConsoleColor InfoColor { get; set; } = _defaultInfoColor;
 
 		/// <summary>
@@ -67,7 +73,7 @@ namespace ColorizedConsole.Configuration
 			settings = new();
 			try
 			{
-				if (!(File.Exists(_configFileName)))
+				if (!File.Exists(_configFileName))
 				{
 					return false;
 				}
@@ -89,6 +95,10 @@ namespace ColorizedConsole.Configuration
 			}
 			catch (Exception)
 			{
+				// This could happen in the ConsoleEx constructor, so use Console here instead so the user has at least some idea
+				// that something happened.
+				Console.WriteLine("Unable to parse cc.config.json due to a parse error.");
+
 				// Do nothing
 				return false;
 			}
@@ -101,9 +111,23 @@ namespace ColorizedConsole.Configuration
 		/// <returns>True if one or more variables exists and can be successfully parsed; otherwise false.</returns>
 		public static bool TryGetFromEnvironment(out Settings settings)
 		{
-			// Pull from environment variasbles if needed
 			settings = new();
-			return false;
+
+			// If none of the vars exist, return false.  Otherwise, go ahead and set what we can.
+			// If any fail to parse, skip it.
+			var debugStr = Environment.GetEnvironmentVariable(_debugEnvironmentVarName);
+			var errorStr = Environment.GetEnvironmentVariable(_errorEnvironmentVarName);
+			var infoStr = Environment.GetEnvironmentVariable(_infoEnvironmentVarName);
+
+			if (debugStr == null && errorStr == null && infoStr == null)
+			{
+				return false;
+			}
+
+			settings.DebugColor = Enum.TryParse(debugStr, out ConsoleColor color) ? color : _defaultDebugColor;
+			settings.ErrorColor = Enum.TryParse(errorStr, out color) ? color : _defaultErrorColor;
+			settings.InfoColor = Enum.TryParse(infoStr, out color) ? color : _defaultInfoColor;
+			return true;
 		}
 
 		/// <summary>
@@ -125,36 +149,39 @@ namespace ColorizedConsole.Configuration
 
 				foreach (var line in content)
 				{
-					var lineParts = line.Split('=');
-					if (Enum.TryParse(lineParts[1], out ConsoleColor color))
+					try
 					{
-						switch (lineParts[0])
+						var lineParts = line.Split('=');
+						if (Enum.TryParse(lineParts[1], out ConsoleColor color))
 						{
-							case "Debug":
-								debugValue = color;
-								break;
+							switch (lineParts[0])
+							{
+								case "Debug":
+									debugValue = color;
+									break;
 
-							case "Error":
-								errorValue = color;
-								break;
+								case "Error":
+									errorValue = color;
+									break;
 
-							case "Info":
-								infoValue = color;
-								break;
+								case "Info":
+									infoValue = color;
+									break;
 
-							default:
-								break;
+								default:
+									break;
+							}
 						}
+					}
+					catch (Exception)
+					{
+						// This could happen in the ConsoleEx constructor, so we can't rely on having that and should use Console instead
+						Console.WriteLine("Unable to convert config file to the new format.  There was an error parsing the old config file.");
 					}
 				}
 
-				Settings newSettings = new Settings(debugValue, errorValue, infoValue);
-				JsonSerializerOptions serializerOptions = new()
-				{
-					WriteIndented = true
-				};
-
-				File.WriteAllText(_configFileName, JsonSerializer.Serialize(newSettings, serializerOptions));
+				Settings newSettings = new(debugValue, errorValue, infoValue);
+				File.WriteAllText(_configFileName, JsonSerializer.Serialize(newSettings, _serializerOptions));
 			}
 		}
 	}

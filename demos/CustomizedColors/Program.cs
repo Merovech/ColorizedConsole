@@ -1,6 +1,6 @@
 ﻿using ColorizedConsole;
 
-ConsoleEx.WriteLine("Demo: Customized colors from .colorizedconsolerc");
+ConsoleEx.WriteLine("Demo: Customized colors from cc.config.json");
 ConsoleEx.WriteLine($"Info : {ConsoleEx.Settings.InfoColor}");
 ConsoleEx.WriteLine($"Debug: {ConsoleEx.Settings.DebugColor}");
 ConsoleEx.WriteLine($"Error: {ConsoleEx.Settings.ErrorColor}");
