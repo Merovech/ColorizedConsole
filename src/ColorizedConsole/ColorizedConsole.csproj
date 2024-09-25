@@ -20,7 +20,8 @@
     <Company />
     <PackageReadmeFile>README-nuget.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Merovech/ColorizedConsole</RepositoryUrl>
-    <PackageReleaseNotes>Initial release.</PackageReleaseNotes>
+	<PackageVersion>1.0.2.1</PackageVersion>
+    <PackageReleaseNotes>Removed config so it can be placed in a new NuGet package.</PackageReleaseNotes>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

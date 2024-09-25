@@ -3,7 +3,7 @@ using System.Runtime.Versioning;
 
 namespace ColorizedConsole
 {
-	public static partial class ConsoleEx
+	public partial class ConsoleEx
 	{
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		[UnsupportedOSPlatform("android")]

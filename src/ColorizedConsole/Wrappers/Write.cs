@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace ColorizedConsole
 {
-	public static partial class ConsoleEx
+	public partial class ConsoleEx
 	{
 		public static void Write([StringSyntax(StringSyntaxAttribute.CompositeFormat)] string format, object? arg0)
 		{

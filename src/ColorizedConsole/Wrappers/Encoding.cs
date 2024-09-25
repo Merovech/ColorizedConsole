@@ -3,7 +3,7 @@ using System.Text;
 
 namespace ColorizedConsole
 {
-	public static partial class ConsoleEx
+	public partial class ConsoleEx
 	{
 
 		public static Encoding OutputEncoding
