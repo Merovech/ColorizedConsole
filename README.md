@@ -63,20 +63,6 @@ In addition, every overload for `Console.Write` and `Console.WriteLine` has a ve
 ColorizedConsole.ConsoleEx.WriteLine(ConsoleColor.Purple, 6);
 ```
 
-## Configuration
-Configuration is done using a file called `.colorcrc`.  This was done to avoid the need for other dependencies or NuGet packages like `Microsoft.Extensions.Configuration`.
-
-The format of this file is very simple:
-```
-Info=[value]
-Debug=[value]
-Error=[value]
-```
-
-`value` must be a valid member of the [`ConsoleColor`](https://learn.microsoft.com/en-us/dotnet/api/system.consolecolor?view=net-8.0) enumeration.  If it is not, `ConsoleEx` will fall back to whatever the system's default colors are for the console.
-
-Put that file in the same location as your .exe, and away you go!
-
 ## Contributions
 Want to contribute?  Fantastic!  I'd be happy for the help to make this even more useful, provided the following project goals are maintained:
 
@@ -88,6 +74,18 @@ Want to contribute?  Fantastic!  I'd be happy for the help to make this even mor
 
 You're welcome to request access to the project or fork it and create a PR.  Or just contact [Merovech](https://github.com/Merovech). Whatever works for you.
 
+## Changelog
+### 1.1.0
+Changes necessary to move configuration to the [`ColorizedConsole.Configuration`](https://www.github.com/merovech/ColorizedConsole.Configuration) package.  Please see that package to learn more about configuring `ColorizedConsole`.
+
+* Made `ConsoleEx` non-static to support extension methods (all existing methods there are still static, though)
+* Removed all file-based configuration functionality
+* Gave `DebugColor`, `InfoColor`, and `ErrorColor` public setters so that developers can change them without needing separate configuration code if they choose
+  * These still default to Yellow, Green, and Red respectively
+
+
+### 1.0.0
+Initial release
 
 ## Current Roadmap (updated monthly - last, September 2024)
 :arrow_forward:= In Progress
@@ -95,15 +93,16 @@ You're welcome to request access to the project or fork it and create a PR.  Or 
 :x:= Incomplete
 :grey_question:= Idea (needs investigation)
 
-* :arrow_forward: Implement updated configuration
-  * :white_check_mark: JSON config file
-  * :x: Environment variables
-  * :x: Unit tests for new config functionality
+* ~~:arrow_forward: Implement updated configuration~~
+  * ~~:white_check_mark: JSON config file~~
+  * ~~:x: Environment variables~~
+  * ~~:x: Unit tests for new config functionality~~
+* :arrow_forward: Move configuration functionality to new package
 * :x: Add a wiki
   * :x: Description of the project
   * :x: Usage examples
   * :x: API documentation
     * :grey_question: Maybe some sort of autodoc
   * :x: Configuration guidelines and examples
-* :x: Change the NuGet README to a changelog
+* :white_check_mark: Change the NuGet README to a changelog
 * :x: Create a GitHub project so that I don't have to keep maintaining this file
