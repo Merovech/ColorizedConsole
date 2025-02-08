@@ -51,6 +51,57 @@ namespace ColorizedConsole.Tests.ConfigurationTests
 		}
 
 		[TestMethod]
+		public void Round_Trips_To_File_With_Defaults_On_Invalid_Color_Value()
+		{
+			string jsonWithInvalidValues = @"{
+				""colors"" : {
+					""debugColor"": ""invalid-color"",
+					""infoColor"": ""also-invalid-color"",
+					""errorColor"": ""also-also-invalid-color""
+				}
+			}";
+
+			File.WriteAllText(Settings.ConfigFileName, jsonWithInvalidValues);
+
+			Settings.TryGetFromFile(out Settings fromFile);
+			Assert.AreEqual(fromFile.Colors.DebugColor, ConsoleColor.Yellow);
+			Assert.AreEqual(fromFile.Colors.ErrorColor, ConsoleColor.Red);
+			Assert.AreEqual(fromFile.Colors.InfoColor, ConsoleColor.Green);
+		}
+
+		[TestMethod]
+		public void Round_Trips_To_File_With_Defaults_On_Invalid_Json()
+		{
+			string jsonWithInvalidValues = @"{
+				""colors"" : {
+					""debugColor-invalid"": ""invalid-color"",
+					""infoColor-invalid"": ""also-invalid-color"",
+					""errorColor-invalid"": ""also-also-invalid-color""
+				}
+			}";
+
+			File.WriteAllText(Settings.ConfigFileName, jsonWithInvalidValues);
+
+			Settings.TryGetFromFile(out Settings fromFile);
+			Assert.AreEqual(fromFile.Colors.DebugColor, ConsoleColor.Yellow);
+			Assert.AreEqual(fromFile.Colors.ErrorColor, ConsoleColor.Red);
+			Assert.AreEqual(fromFile.Colors.InfoColor, ConsoleColor.Green);
+		}
+
+		[TestMethod]
+		public void Round_Trips_To_File_With_Defaults_On_Empty_Json()
+		{
+			string jsonWithInvalidValues = "{}";
+
+			File.WriteAllText(Settings.ConfigFileName, jsonWithInvalidValues);
+
+			Settings.TryGetFromFile(out Settings fromFile);
+			Assert.AreEqual(fromFile.Colors.DebugColor, ConsoleColor.Yellow);
+			Assert.AreEqual(fromFile.Colors.ErrorColor, ConsoleColor.Red);
+			Assert.AreEqual(fromFile.Colors.InfoColor, ConsoleColor.Green);
+		}
+
+		[TestMethod]
 		public void Pulls_Successfully_From_Environment_Variables()
 		{       
 			Environment.SetEnvironmentVariable("CCDEBUGCOLOR", ConsoleColor.Magenta.ToString());
