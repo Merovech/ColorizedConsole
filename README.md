@@ -87,17 +87,16 @@ Changes necessary to move configuration to the [`ColorizedConsole.Configuration`
 ### 1.0.0
 Initial release
 
-## Current Roadmap (updated monthly - last, September 2024)
+## Current Roadmap (updated monthly - last, January 2025)
 :arrow_forward:= In Progress
 :white_check_mark:= Complete
 :x:= Incomplete
 :grey_question:= Idea (needs investigation)
 
-* ~~:arrow_forward: Implement updated configuration~~
-  * ~~:white_check_mark: JSON config file~~
-  * ~~:x: Environment variables~~
-  * ~~:x: Unit tests for new config functionality~~
-* :arrow_forward: Move configuration functionality to new package
+* :arrow_forward: Implement updated configuration
+  * :white_check_mark: JSON config file
+  * :white_check_mark: Environment variables
+  * :x: Unit tests for new config functionality
 * :x: Add a wiki
   * :x: Description of the project
   * :x: Usage examples
