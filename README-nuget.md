@@ -8,8 +8,6 @@ ColorizedConsole is a simple, lightweight wrapper for `System.Console` that adds
 
 * Lightweight -- uses no external libraries or NuGet packages.
 
-Configuration functionality is available via a separate NuGet package: [`ColorizedConsole.Configuration`](https://www.github.com/merovech/ColorizedConsole.Configuration).
-
 ## Installation
 ColorizedConsole is available via NuGet.
 ``` powershell
@@ -66,8 +64,6 @@ You're welcome to request access to the project or fork it and create a PR.  Or 
 
 ## Changelog
 ### 1.1.0
-Changes necessary to move configuration to the [`ColorizedConsole.Configuration`](https://www.github.com/merovech/ColorizedConsole.Configuration) package.  Please see that package to learn more about configuring `ColorizedConsole`.
-
 * Made `ConsoleEx` non-static to support extension methods (all existing methods there are still static, though)
 * Removed all file-based configuration functionality
 * Gave `DebugColor`, `InfoColor`, and `ErrorColor` public setters so that developers can change them without needing separate configuration code if they choose
