@@ -1,5 +1,4 @@
-﻿using System.Runtime;
-using System.Text.Json;
+﻿using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace ColorizedConsole.Configuration
@@ -8,6 +7,15 @@ namespace ColorizedConsole.Configuration
 	{
 		[JsonPropertyName("colors")]
 		public ColorSettings Colors { get; set; }
+
+		[JsonIgnore]
+		public static readonly string DebugEnvironmentVarName = Constants.DebugEnvironmentVarName;
+
+		[JsonIgnore]
+		public static readonly string ErrorEnvironmentVarName = Constants.ErrorEnvironmentVarName;
+
+		[JsonIgnore]
+		public static readonly string InfoEnvironmentVarName = Constants.InfoEnvironmentVarName;
 
 		/// <summary>
 		/// Initializes a new instance of the Settings class with default values.
@@ -33,7 +41,7 @@ namespace ColorizedConsole.Configuration
 
 		public static Settings Default { get; set; } = new Settings();
 
-		public static string ConfigFileName { get => "cc.config.json"; }
+		public static string ConfigFileName { get => Constants.ConfigFileName; }
 
 		/// <summary>
 		/// Attempts to get an instance of the Settings class from the config file.
@@ -88,9 +96,9 @@ namespace ColorizedConsole.Configuration
 
 			// If none of the vars exist, return false.  Otherwise, go ahead and set what we can.
 			// If any fail to parse, skip it.
-			var debugStr = System.Environment.GetEnvironmentVariable(Constants.DebugEnvironmentVarName);
-			var errorStr = System.Environment.GetEnvironmentVariable(Constants.ErrorEnvironmentVarName);
-			var infoStr = System.Environment.GetEnvironmentVariable(Constants.InfoEnvironmentVarName);
+			var debugStr = System.Environment.GetEnvironmentVariable(DebugEnvironmentVarName);
+			var errorStr = System.Environment.GetEnvironmentVariable(ErrorEnvironmentVarName);
+			var infoStr = System.Environment.GetEnvironmentVariable(InfoEnvironmentVarName);
 
 			if (debugStr == null && errorStr == null && infoStr == null)
 			{
@@ -98,8 +106,8 @@ namespace ColorizedConsole.Configuration
 			}
 
 			settings.Colors.DebugColor = Enum.TryParse(debugStr, out ConsoleColor color) ? color : Constants.DebugColor;
-			settings.Colors.ErrorColor = Enum.TryParse(errorStr, out color) ? color : Constants.DebugColor;
-			settings.Colors.InfoColor = Enum.TryParse(infoStr, out color) ? color : Constants.DebugColor;
+			settings.Colors.ErrorColor = Enum.TryParse(errorStr, out color) ? color : Constants.ErrorColor;
+			settings.Colors.InfoColor = Enum.TryParse(infoStr, out color) ? color : Constants.InfoColor;
 			return true;
 		}
 	}

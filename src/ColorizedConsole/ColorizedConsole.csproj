@@ -8,9 +8,9 @@
     <SignAssembly>False</SignAssembly>
     <Title>Colorized Console</Title>
     <Description>A simple colorized console that wraps System.Console.  Provides full System.Console functionality as well as colorized output generically and for customizable Debug/Info/Error colors.</Description>
-    <Copyright>Copyright © 2004 Ari Roth</Copyright>
+    <Copyright>Copyright © 2025 Ari Roth</Copyright>
     <PackageProjectUrl>https://github.com/Merovech/ColorizedConsole</PackageProjectUrl>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.0.0</AssemblyVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <EnforceCodeStyleInBuild>True</EnforceCodeStyleInBuild>
@@ -20,7 +20,7 @@
     <Company />
     <PackageReadmeFile>README-nuget.md</PackageReadmeFile>
     <RepositoryUrl>https://github.com/Merovech/ColorizedConsole</RepositoryUrl>
-	<PackageVersion>1.0.2.1</PackageVersion>
+	<PackageVersion>1.1.0.0</PackageVersion>
     <PackageReleaseNotes>Removed config so it can be placed in a new NuGet package.</PackageReleaseNotes>
   </PropertyGroup>
 

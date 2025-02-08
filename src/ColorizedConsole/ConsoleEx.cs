@@ -5,13 +5,18 @@ namespace ColorizedConsole
 {
 	public partial class ConsoleEx
 	{
+		static ConsoleEx() 
+		{
+			ApplySettings();
+		}
+
 		public static ConsoleColor DebugColor { get; set; }
 
 		public static ConsoleColor ErrorColor { get; set; }
 
 		public static ConsoleColor InfoColor { get; set; }
 
-		public static void ApplySettings(string? filename)
+		public static void ApplySettings()
 		{
             // Order of precedence:
             // * Environment

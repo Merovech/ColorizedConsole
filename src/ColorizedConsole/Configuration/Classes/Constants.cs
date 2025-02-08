@@ -9,5 +9,7 @@
 		public static readonly string DebugEnvironmentVarName = "CCDEBUGCOLOR";
 		public static readonly string ErrorEnvironmentVarName = "CCERRORCOLOR";
 		public static readonly string InfoEnvironmentVarName = "CCINFOCOLOR";
+
+		public static readonly string ConfigFileName = "cc.config.json";
 	}
 }
