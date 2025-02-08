@@ -2,7 +2,7 @@
 
 namespace ColorizedConsole
 {
-	public static partial class ConsoleEx
+	public partial class ConsoleEx
 	{
 		// Passthroughs to the Console, which takes care of the OS stuff
 #pragma warning disable CA1416 // Validate platform compatibility

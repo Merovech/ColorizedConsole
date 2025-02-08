@@ -2,7 +2,7 @@
 
 namespace ColorizedConsole
 {
-	public static partial class ConsoleEx
+	public partial class ConsoleEx
 	{
 		[UnsupportedOSPlatform("android")]
 		[UnsupportedOSPlatform("browser")]

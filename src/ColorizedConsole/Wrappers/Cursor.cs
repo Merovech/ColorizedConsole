@@ -2,7 +2,7 @@
 
 namespace ColorizedConsole
 {
-	public static partial class ConsoleEx
+	public partial class ConsoleEx
 	{
 #pragma warning disable CA1416 // Validate platform compatibility
 		public static bool CursorVisible

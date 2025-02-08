@@ -2,7 +2,7 @@
 
 namespace ColorizedConsole
 {
-	public static partial class ConsoleEx
+	public partial class ConsoleEx
 	{
 		public static event ConsoleCancelEventHandler? CancelKeyPress
 		{

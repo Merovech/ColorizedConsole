@@ -1,55 +1,63 @@
-﻿namespace ColorizedConsole
+﻿using ColorizedConsole.Configuration;
+using ColorizedConsole.Configuration.Classes;
+
+namespace ColorizedConsole
 {
-	public static partial class ConsoleEx
+	public partial class ConsoleEx
 	{
-		private static readonly string _configFileName = ".colorizedconsolerc";
-		private static readonly ConsoleColor _defaultErrorColor = ConsoleColor.Red;
-		private static readonly ConsoleColor _defaultDebugColor = ConsoleColor.Yellow;
-		private static readonly ConsoleColor _defaultInfoColor = ConsoleColor.Green;
-
-		public static ConsoleColor DebugColor { get; private set; } = _defaultDebugColor;
-
-		public static ConsoleColor ErrorColor { get; private set; } = _defaultErrorColor;
-
-		public static ConsoleColor InfoColor { get; private set; } = _defaultInfoColor;
-
-		static ConsoleEx()
+		static ConsoleEx() 
 		{
-			if (File.Exists(_configFileName))
+			ApplySettings();
+		}
+
+		public static ConsoleColor DebugColor { get; set; }
+
+		public static ConsoleColor ErrorColor { get; set; }
+
+		public static ConsoleColor InfoColor { get; set; }
+
+		public static void ApplySettings()
+		{
+            // Order of precedence:
+            // * Environment
+            // * Existing file
+            // * Defaults (written to file if none exist)
+
+			// Environment
+            if (Settings.TryGetFromEnvironment(out Settings settings))
+            {
+				SetColorsFromSettings(settings);
+				return;
+            }
+
+			if (File.Exists(Settings.ConfigFileName) && Settings.TryGetFromFile(out settings))
 			{
-				var configLines = File.ReadAllLines(_configFileName);
-				foreach (var line in configLines) {
-					// Fallbacks are defined above
-					ConsoleColor? parsedColor = GetConsoleColor(line);
-					if (line.StartsWith("Debug"))
-					{
-						DebugColor = parsedColor ?? Console.ForegroundColor;
-					}
-					else if (line.StartsWith("Error"))
-					{
-						ErrorColor = parsedColor ?? Console.ForegroundColor;
-					}
-					else if (line.StartsWith("Info"))
-					{
-						InfoColor = parsedColor ?? Console.ForegroundColor;
-					}
-				}
+				SetColorsFromSettings(settings);
+			}
+			else
+			{
+				// If no settings exist, write a default set and use that
+				Settings defaultSettings = new();
+				defaultSettings.WriteToFile();
+				SetColorsFromSettings(defaultSettings);
 			}
 		}
 
-		// This was the only way I could think to avoid writing the same three lines a million times.
+		// This was the only way I could think to avoid writing the same four lines a million times.
 		// I'm open to better options.
 		internal static void WriteColorized(ConsoleColor color, Action writeAction)
 		{
+			var tmp = Console.ForegroundColor;
 			ForegroundColor = color;
 			writeAction();
-			ResetColor();
+			Console.ForegroundColor = tmp;
 		}
 
-		private static ConsoleColor? GetConsoleColor(string line)
+		private static void SetColorsFromSettings(Settings settings)
 		{
-			string colorString = line[(line.IndexOf('=') + 1)..];
-			return Enum.TryParse(colorString, out ConsoleColor color) ?	color : null;
+			DebugColor = settings.Colors.DebugColor;
+			ErrorColor = settings.Colors.ErrorColor;
+			InfoColor = settings.Colors.InfoColor;			
 		}
 	}
 }
