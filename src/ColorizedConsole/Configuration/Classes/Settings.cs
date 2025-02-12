@@ -5,17 +5,47 @@ namespace ColorizedConsole.Configuration
 {
 	public class Settings
 	{
+		/// <summary>
+		/// Gets or sets the color settings for this object.
+		/// </summary>
 		[JsonPropertyName("colors")]
-		public ColorSettings Colors { get; set; }
+		public ColorSettings Colors
+		{
+			get; set;
+		}
 
+		/// <summary>
+		/// Environment variable name for DebugColor setting.  Not serialized when writing JSON to file.
+		/// </summary>
 		[JsonIgnore]
 		public static readonly string DebugEnvironmentVarName = Constants.DebugEnvironmentVarName;
 
+		/// <summary>
+		/// Environment variable name for ErrorColor setting.  Not serialized when writing JSON to file.
+		/// </summary>
 		[JsonIgnore]
 		public static readonly string ErrorEnvironmentVarName = Constants.ErrorEnvironmentVarName;
 
+		/// <summary>
+		/// Environment variable name for InfoColor setting.  Not serialized when writing JSON to file.
+		/// </summary>
 		[JsonIgnore]
 		public static readonly string InfoEnvironmentVarName = Constants.InfoEnvironmentVarName;
+
+		/// <summary>
+		/// Gets the config file name.  Not serialized when writing JSON to file.
+		/// </summary>
+		[JsonIgnore]
+		public static string ConfigFileName
+		{
+			get => Constants.ConfigFileName;
+		}
+
+		/// <summary>
+		/// Provides a default set of color settings.  Not serialized when writing JSON to file.
+		/// </summary>
+		[JsonIgnore]
+		public static Settings Default { get; set; } = new Settings();
 
 		/// <summary>
 		/// Initializes a new instance of the Settings class with default values.
@@ -38,10 +68,6 @@ namespace ColorizedConsole.Configuration
 			Colors.ErrorColor = errorColor ?? Constants.ErrorColor;
 			Colors.InfoColor = consoleColor ?? Constants.InfoColor;
 		}
-
-		public static Settings Default { get; set; } = new Settings();
-
-		public static string ConfigFileName { get => Constants.ConfigFileName; }
 
 		/// <summary>
 		/// Attempts to get an instance of the Settings class from the config file.
