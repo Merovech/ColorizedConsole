@@ -10,12 +10,28 @@ namespace ColorizedConsole
 			ApplySettings();
 		}
 
+		/// <summary>
+		/// The color used for the foreground when calling WriteDebug and WriteDebugLine methods.
+		/// </summary>
 		public static ConsoleColor DebugColor { get; set; }
 
+		/// <summary>
+		/// The color used for the foreground when calling WriteError and WriteWriteLine methods.
+		/// </summary>
 		public static ConsoleColor ErrorColor { get; set; }
 
+		/// <summary>
+		/// The color used for the foreground when calling WriteInfo and WriteInfoLine methods.
+		/// </summary>
 		public static ConsoleColor InfoColor { get; set; }
 
+		/// <summary>
+		/// Applies settings from the environment, config file, or defaults in order of precedence:
+		/// 
+		/// 1. Settings set on environment variables.
+		/// 2. Settings set in cc.config.json.
+		/// 3. Defaults.
+		/// </summary>
 		public static void ApplySettings()
 		{
             // Order of precedence:

@@ -144,7 +144,7 @@ Bug Fixes
 ### 1.0.0
 Initial release
 
-## Current Roadmap (updated monthly - last, January 2025)
+## Current Roadmap (updated monthly - last, February 2025)
 :arrow_forward:= In Progress
 :white_check_mark:= Complete
 :x:= Incomplete
@@ -157,7 +157,7 @@ Initial release
     * :white_check_mark: Unit tests for new config functionality
     * :white_check_mark: Update Readme documentation
     * :x: Update Readme-nuget documentation
-    * :x: Update XML documentation
+    * :white_check_mark: Update XML documentation
     * :x: Push to Nuget.org
 * :x: Add a wiki
   * :x: Description of the project
