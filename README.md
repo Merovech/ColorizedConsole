@@ -144,7 +144,7 @@ Bug Fixes
 ### 1.0.0
 Initial release
 
-## Current Roadmap (updated monthly - last, January 2025)
+## Current Roadmap (updated monthly - last, February 2025)
 :arrow_forward:= In Progress
 :white_check_mark:= Complete
 :x:= Incomplete
