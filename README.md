@@ -144,7 +144,7 @@ Bug Fixes
 ### 1.0.0
 Initial release
 
-## Current Roadmap (updated monthly - last, February 2025)
+## Current Roadmap (updated monthly - last, March 2025)
 :arrow_forward:= In Progress
 :white_check_mark:= Complete
 :x:= Incomplete
@@ -156,15 +156,10 @@ Initial release
     * :white_check_mark: Environment variables
     * :white_check_mark: Unit tests for new config functionality
     * :white_check_mark: Update Readme documentation
-    * :x: Update Readme-nuget documentation
+    * :white_check_mark: Update Readme-nuget documentation
     * :white_check_mark: Update XML documentation
     * :x: Push to Nuget.org
-* :x: Add a wiki
-  * :x: Description of the project
-  * :x: Usage examples
-  * :x: API documentation
-    * :grey_question: Maybe some sort of autodoc
-  * :x: Configuration guidelines and examples
+* :white_check_mark: Add a wiki
 * :white_check_mark: Change the NuGet README to a changelog
 * :x: Create a GitHub project so that I don't have to keep maintaining this file
 * :grey_question: Investigate code generation for v2.0
